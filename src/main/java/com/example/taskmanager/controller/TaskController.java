@@ -1,35 +1,36 @@
 package com.example.taskmanager.controller;
 
+import com.example.taskmanager.model.Task;
+import com.example.taskmanager.repository.TaskRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import lombok.RequiredArgsConstructor;
-import com.example.taskmanager.service.TaskService;
-import com.example.taskmanager.model.Task;
-
 @Controller
-@RequiredArgsConstructor
 public class TaskController {
 
-    private final TaskService service;
+    private final TaskRepository taskRepository;
+
+    public TaskController(TaskRepository taskRepository) {
+        this.taskRepository = taskRepository;
+    }
 
     @GetMapping("/")
-    public String home(Model model){
-        model.addAttribute("tasks", service.getAllTasks());
+    public String index(Model model) {
+        model.addAttribute("tasks", taskRepository.findAll());
         model.addAttribute("task", new Task());
         return "index";
     }
 
-    @PostMapping("/save")
-    public String saveTask(Task task){
-        service.saveTask(task);
+    @PostMapping("/add")
+    public String addTask(@ModelAttribute Task task) {
+        taskRepository.save(task);
         return "redirect:/";
     }
 
     @GetMapping("/delete/{id}")
-    public String deleteTask(@PathVariable Long id){
-        service.deleteTask(id);
+    public String deleteTask(@PathVariable Long id) {
+        taskRepository.deleteById(id);
         return "redirect:/";
     }
 }
