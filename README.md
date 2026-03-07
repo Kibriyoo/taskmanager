@@ -1,4 +1,4 @@
-<img width="1201" height="543" alt="image" src="https://github.com/user-attachments/assets/4c1623a1-31f0-4a72-ad5a-1f8059a255a2" /># Task Manager
+**# Task Manager**
 A simple web-based task manager to create, track, and manage daily tasks efficiently.
 
 <img width="1020" height="597" alt="image" src="https://github.com/user-attachments/assets/b0767dfd-609d-421e-b81d-fb495aa6fac2" />
