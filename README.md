@@ -1,4 +1,4 @@
-** Task Manager **
+**Task Manager**
 
 A simple web-based task manager to create, track, and manage daily tasks efficiently.
 
