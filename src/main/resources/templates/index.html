@@ -14,6 +14,19 @@
 <h2>Task Manager</h2>
 
 <form action="/add" method="post">
+    <input class="form-control mb-2" name="title" placeholder="Task title" required>
+    <input class="form-control mb-2" name="description" placeholder="Description">
+
+    <select class="form-control mb-2" name="status">
+        <option value="Not Started">Not Started</option>
+        <option value="In Progress">In Progress</option>
+        <option value="Done">Done</option>
+    </select>
+
+    <input type="date" class="form-control mb-2" name="dueDate" required>
+
+    <button class="btn btn-primary" type="submit">Add Task</button>
+</form>
 
     <input class="form-control mb-2" name="title" placeholder="Task title">
     <input class="form-control mb-2" name="description" placeholder="Description">
@@ -26,28 +39,30 @@
 
 <hr>
 
-<table class="table">
-
+<<table class="table mt-4">
+    <thead>
     <tr>
         <th>Title</th>
         <th>Description</th>
         <th>Status</th>
-        <th>Action</th>
+        <th>Due Date</th> <th>Action</th>
     </tr>
-
+    </thead>
+    <tbody>
     <tr th:each="task : ${tasks}">
-
         <td th:text="${task.title}"></td>
         <td th:text="${task.description}"></td>
-        <td th:text="${task.status}"></td>
-
         <td>
-            <a th:href="@{/delete/{id}(id=${task.id})}"
-               class="btn btn-danger">Delete</a>
+            <span class="badge bg-info" th:text="${task.status}"></span>
         </td>
-
+        <td th:text="${#temporals.format(task.dueDate, 'yyyy-MM-dd')}"></td>
+        <td>
+            <form th:action="@{/delete/{id}(id=${task.id})}" method="post">
+                <button class="btn btn-danger btn-sm">Delete</button>
+            </form>
+        </td>
     </tr>
-
+    </tbody>
 </table>
 
 </body>
