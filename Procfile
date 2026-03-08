@@ -1,1 +1,1 @@
-web: java -jar target/*.jar
+java -jar target/*.jar
