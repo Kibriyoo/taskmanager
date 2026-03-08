@@ -13,15 +13,26 @@ public class TaskService {
 
     private final TaskRepository repository;
 
-    public List<Task> getAllTasks(){
+    public List<Task> getAllTasks() {
         return repository.findAll();
     }
 
-    public Task saveTask(Task task){
+    public Task saveTask(Task task) {
         return repository.save(task);
     }
 
-    public void deleteTask(Long id){
+    public void deleteTask(Long id) {
         repository.deleteById(id);
+    }
+
+    // Fixed: Moved outside of deleteTask and updated variable name to 'repository'
+    public Task getTaskById(Long id) {
+        return repository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Invalid task Id:" + id));
+    }
+
+    // Fixed: Updated variable name to 'repository'
+    public void updateTask(Task task) {
+        repository.save(task);
     }
 }
