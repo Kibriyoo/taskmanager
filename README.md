@@ -10,7 +10,7 @@ A simple web-based task manager to create, track, and manage daily tasks efficie
 - **Due Date:** Set and view task deadlines
 - **Actions:** Edit or delete tasks
 
-  <img width="987" height="603" alt="image" src="https://github.com/user-attachments/assets/1c6c9dca-41a9-4906-bf21-551c4cf63bcf" />
+  <img width="927" height="589" alt="image" src="https://github.com/user-attachments/assets/bd842bae-b788-4325-9bd8-e9ed8bd81b4d" />
 
   
 - ## Technologies
@@ -52,7 +52,10 @@ cd task-manager
    ## Usage
 - Add a task by entering **Title**, **Description**, and **Due Date**.  
 - Update **Status** as tasks progress.  
-- Use **Actions** to edit or delete tasks.  
+- Use **Actions** to edit or delete tasks.
+
+  <img width="927" height="589" alt="image" src="https://github.com/user-attachments/assets/db786952-a0e0-4eda-8af0-229568b544e6" />
+
 
 
 ## Deployment
